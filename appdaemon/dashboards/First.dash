@@ -1,0 +1,90 @@
+##
+## Main arguments, all optional
+##
+title: First
+widget_dimensions: [120, 120]
+widget_size: [1, 1]
+widget_margins: [7, 7]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+      media_player:
+        step: 5
+clock:
+    widget_type: clock
+    widget_style: "background: #000000; font-size: 200%;"
+    time_style: "color: #33FFFF;"
+    date_style: "color: #33FFFF;"
+chells_note_5:
+    widget_type: device_tracker
+    entity: device_tracker.chells_note_5
+    title: Chell
+    title_style: "font-size: 175%;"
+    icon_on: mdi-alien
+    icon_off: fa-paper-plane
+ryans_pixel_2_xl:
+    widget_type: device_tracker
+    entity: device_tracker.ryans_pixel_2_xl
+    title: Ryan
+    title_style: "font-size: 175%;"
+    icon_on: fa-user-astronaut
+    icon_off: fa-space-shuttle
+sn1_temperature:
+    widget_type: sensor
+    entity: sensor.sn1_temperature
+    title: Kingdom
+    widget_style: "font-size: 130%;"
+sn2_temperature:
+    widget_type: sensor
+    entity: sensor.sn2_temperature
+    title: Lab
+    widget_style: "font-size: 130%;"
+sn3_temperature:
+    widget_type: sensor
+    entity: sensor.sn3_temperature
+    title: Lair
+    widget_style: "font-size: 130%;"
+strip_cord_1:
+    widget_type: switch
+    entity: switch.strip_cord_1
+    prefer_icons: 1
+    title: Desk lamp
+strip_cord_2:
+    widget_type: switch
+    entity: switch.strip_cord_2
+    title: Lamp
+    prefer_icons: fa-bed
+strip_cord_3:
+    widget_type: switch
+    entity: switch.strip_cord_3
+    title: Fish tank
+    icon: fa-tint
+ha_alarm:
+    widget_type: alarm
+    entity: alarm_control_panel.ha_alarm
+    title: HA Alarm
+layout:
+    - clock(2x2), weather.weather(2x2),          spacer(1x1), ha_alarm,      chells_note_5, ryans_pixel_2_xl
+    -
+    - sn1_temperature, light.kingdom, light.1, light.2, light.3
+    - sn3_temperature, light.bedroom, light.window, strip_cord_2, spacer(1x1), sn2_temperature, strip_cord_1, strip_cord_3
+    - include: bottom_panel
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

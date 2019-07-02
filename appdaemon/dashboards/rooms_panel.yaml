@@ -1,0 +1,14 @@
+load_lair:
+    widget_type: navigate
+    title: Lair
+    icon_inactive: fa-bed
+    dashboard: Lair
+
+load_lab:
+    widget_type: navigate
+    title: Lab
+    icon_inactive: mid-radioactive
+    dashboard: Lab
+
+layout:
+    - load_lair, load_lab

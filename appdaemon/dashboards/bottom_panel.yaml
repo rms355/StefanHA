@@ -1,0 +1,32 @@
+load_castle:
+    widget_type: navigate
+    title: Castle
+    icon_inactive: mdi-castle
+    dashboard: Castle
+
+load_weather:
+    widget_type: navigate
+    title: Weather
+    icon_inactive: fa-cloud
+    dashboard: Weather
+
+load_rooms:
+    widget_type: navigate
+    title: Rooms
+    icon_inactive: fa-bed
+    dashboard: Rooms
+
+load_lair:
+    widget_type: navigate
+    title: Lair
+    icon_inactive: fa-bed
+    dashboard: Lair
+    
+load_lab:
+    widget_type: navigate
+    title: Lab
+    icon_inactive: mdi-radioactive
+    dashboard: Lab
+    
+layout: 
+    - load_castle(2x1),  load_weather(2x1), load_lair(2x1), load_lab(2x1)

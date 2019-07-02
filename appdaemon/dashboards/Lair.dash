@@ -1,0 +1,27 @@
+#
+# Main arguments, all optional
+#
+title: Lab
+widget_dimensions: [122, 120]
+widget_margins: [5, 5]
+columns: 8
+#
+# Includes (Optional)
+#
+sn3_temperature:
+    widget_type: sensor
+    entity: sensor.sn3_temperature
+    title: Lair
+    widget_style: "font-size: 130%;"
+strip_cord_2:
+    widget_type: switch
+    entity: switch.strip_cord_2
+    title: Lamp
+    prefer_icons: fa-bed
+
+layout:
+    - sn3_temperature, light.bedroom, light.window, strip_cord_2
+    - spacer
+    - spacer
+    - spacer
+    - include: bottom_panel

@@ -1,0 +1,35 @@
+#
+# Main arguments, all optional
+#
+title: Lab
+widget_dimensions: [122, 120]
+widget_margins: [5, 5]
+columns: 8
+#skin = green
+#
+# Includes (Optional)
+#
+strip_cord_3:
+    widget_type: switch
+    entity: switch.strip_cord_3
+    title: Fish tank
+    icon: fa-tint
+strip_cord_1:
+    widget_type: switch
+    entity: switch.strip_cord_1
+    prefer_icons: 1
+    title: Desk lamp
+sn2_temperature:
+    widget_type: sensor
+    entity: sensor.sn2_temperature
+    title: Lab
+    widget_style: "font-size: 130%;"
+includes:
+    - bottom_panel
+
+layout:
+    - sn2_temperature, strip_cord_1, strip_cord_3
+    - spacer
+    - spacer
+    - spacer
+    - include: bottom_panel

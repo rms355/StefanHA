@@ -1,0 +1,14 @@
+log:
+  logfile: STDOUT
+  errorfile: STDERR
+appdaemon:
+  threads: 10
+  app_dir: /config/appdaemon/apps
+  plugins:
+    HASS:
+      type: hass
+      ha_url: http://hassio/homeassistant
+      token: 0c592ab64afc83c29ae424cdf98d353cd943c93ee67b8743142b48eba938a24d7e0c9f1a614f5b13474d14d5c275c7e22529153ff3c21bfb
+hadashboard:
+  dash_url: http://192.168.86.104:5050
+  dash_dir: /config/appdaemon/dashboards
