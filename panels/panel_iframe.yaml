@@ -1,0 +1,21 @@
+tasmo:
+  title: TasmoAdmin
+  icon: mdi:power-plug
+  url: https://stefanha.duckdns.org:9541
+    
+#   mqtt:
+#     title: MQTT
+#     icon: mdi:code-brackets
+#     url: https://stefanha.duckdns.org:5713
+
+ide:
+  title: IDE
+  icon: mdi:code-braces
+  url: https://stefanha.duckdns.org:8321
+  
+
+jupyterlab:
+  title: JupyterLab
+  icon: mdi:flask
+  url: https://addres.to.your.hass.io:7777
+  
