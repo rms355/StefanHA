@@ -1,0 +1,124 @@
+- id: fish_tank_light
+  alias: Fish Tank Light On
+  trigger:
+  - at: '11:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.strip_cord_3
+    entity_id: switch.strip_cord_3
+    service: switch.turn_on
+- id: '1541220061061'
+  alias: Squiggle
+  trigger:
+  - entity_id: binary_sensor.squiggle
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    service: device_tracker.see
+- id: '1542093937591'
+  alias: Lair Humidity
+  trigger:
+  - above: '50'
+    below: '60'
+    entity_id: sensor.sn3_humidity
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.strip_cord_4
+    service: switch.turn_on
+- id: '1552435174446'
+  alias: Lab light off
+  trigger:
+  - entity_id: sensor.sn2_pir
+    for: 00:05:00
+    from: motion detected
+    platform: state
+    to: standby
+  condition: []
+  action:
+  - data:
+      entity_id: switch.strip_cord_1
+    service: switch.turn_off
+- id: '1552621212425'
+  alias: Fish Tank Light Off
+  trigger:
+  - at: '20:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.strip_cord_3
+    service: switch.turn_off
+- id: '1555269986474'
+  alias: Night light
+  trigger:
+  - entity_id: sensor.sn1_pir
+    for: 00:05:00
+    from: stand by
+    platform: state
+    to: motion detected
+  condition:
+  - after: 01:00:00
+    before: 06:00:00
+    condition: time
+  action:
+  - data:
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: '1'
+      max_mireds: 500
+      min_mireds: 153
+      supported_features: 63
+    service: light.turn_on
+- id: '1556779760950'
+  alias: Back door reset
+  initial_state: 'on'
+  trigger:
+  - entity_id: binary_sensor.back_door
+    for:
+      seconds: 5
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      payload: EF8BA9off
+      topic: tele/RF_Bridge/RESULT
+    service: mqtt.publish
+- id: '1556783144733'
+  alias: Somewhere reset
+  trigger:
+  - entity_id: binary_sensor.somewhere
+    for: 00:00:05
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      payload: 3CBCB9off
+      topic: tele/RF_Bridge/RESULT
+    service: mqtt.publish
+- id: '1557377279478'
+  alias: Lab light on
+  trigger:
+  - entity_id: sensor.sn2_pir
+    from: standby
+    platform: state
+    to: motion detected
+  - entity_id: binary_sensor.back_door
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.strip_cord_1
+    service: switch.turn_on

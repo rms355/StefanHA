@@ -1,0 +1,241 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 37.751545
+  longitude: -89.064867
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 125
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Chicago
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Enables configuration UI
+config:
+
+#custom_updater:
+
+hacs:
+  token: !secret HACS_github
+  appdaemon: true
+  python_script: true
+  theme: true
+
+http:
+  api_password: !secret api_password
+  base_url: !secret base_url
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+#sensor:
+#  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+light: !include_dir_list lights/
+sensor: !include_dir_list sensors/
+binary_sensor: !include_dir_list binary_sensors/
+switch: !include_dir_list switches/
+weather: !include_dir_list weather/
+zone: !include_dir_list zones/
+camera: !include_dir_list cameras/
+panel_iframe: !include panels/panel_iframe.yaml
+
+stream:
+
+# binary_sensor:
+#     - platform: mqtt
+#       state_topic: "tele/RF_Bridge/RESULT"
+#       name: 'Back Door'
+#       value_template: '{{value_json.RfReceived.Data}}'
+#       payload_on: 'EF8BA9'
+#       payload_off: 'EF8BA9off'
+#       device_class: door
+#       qos: 1
+      
+#     - platform: mqtt
+#       state_topic: "tele/RF_Bridge/RESULT"
+#       name: 'Somewhere'
+#       value_template: '{{value_json.RfReceived.Data}}'
+#       payload_on: '3CBCB9'
+#       payload_off: '3CBCB9off'
+#       device_class: door
+#       qos: 1
+
+ifttt:
+  key: !secret ifttt_key
+  
+media_extractor:
+
+media_player:
+  - platform: gpmdp
+    host: 192.168.86.133
+    name: Google Play Music
+    
+  - platform: plex
+  
+  - platform: yamaha_musiccast
+    host: 192.168.86.208
+    
+#  - platform: firetv
+#    name: Sticky
+#    host: 192.168.86.250
+  
+  - platform: ps4
+    host: https://stefanha.duckdns.org:3031    
+    ps4_ip: 192.168.86.241
+    name: Playstation 4
+    local_store: games
+    
+#mqtt:
+#  broker: core-mosquitto
+##  username: !secret mqtt_username
+##  password: !secret mqtt_password
+
+    
+alarm_control_panel:
+  - platform: manual_mqtt
+ #    name: StefanHA Alarm
+    code: 1414
+    state_topic: home/alarm
+    command_topic: home/alarm/set
+#    pending_time: 30
+#    delay_time: 20
+#    trigger_time: 4
+#    disarmed:
+#      trigger_time: 0
+#    armed_home:
+#      pending_time: 0
+#      delay_time: 0
+
+hdmi_cec:
+  platform: media_player
+  
+notify:
+  - platform: html5
+    name: NOTIFIER_NAME
+    vapid_pub_key: BCtoINOYSDe7AunralSFhZ07CNXiGsnCJwyjM3evxZxOKYK_aR3mmLsWn16LGB9Kb8k4dvrzRvSyp1Jaxzz9Nbw
+    vapid_prv_key: 2YLFI_lpjmCedTOC5jWHo2wObyIpdbASB-uiLm-KNxM
+    vapid_email: rms355@gmail.com
+    
+#  - platform: html5
+#    name: NOTIFIER_NAME
+#    gcm_api_key: 'AAAAV0kvC_w:APA91bEEGeWklCQqVmdeRmOQ2YfiSmn6BQIY8L602IvIlolwvz_PfA6CaVElfELskUQLqJWkPgZZwiCQhRw19OVR1ZOEWeUOi33n1MWap9e-cqouaj6iwNVQsWtQ6y2_t-ZgYqaL4WZ8'
+#    gcm_sender_id: '374889974780'
+    
+device_tracker:
+  - platform: life360
+    username: !secret life360_username
+    password: !secret life360_password
+    prefix: life360
+    show_as_state: driving, moving, places
+    time_as: local
+    interval_seconds: 60
+    driving_speed: 18
+    add_zones: true
+    zone_interval: 
+      minutes: 15
+    
+#  - platform: owntracks_http
+
+#  - platform: bluetooth_tracker
+#    request_rssi: true
+    
+#  - platform: googlehome
+#    host: 192.168.86.242
+#    rssi_threshold: -70
+    
+octoprint:
+  host: !secret octoprint_ip
+  api_key: !secret octoprint_api
+  name: Printy
+  bed: true
+  number_of_tools: 1
+  
+#usps:
+#  username: !secret usps_username
+#  password: !secret usps_password
+#  driver: chrome
+    
+digital_ocean:
+  access_token: !secret digital_ocean_api_key
+  
+#dominos:
+# country_code: us
+# first_name: Ryan
+# last_name: Stefan
+# email: rms355@gmail.com
+# phone: 6182015051
+# address: 1200 Stefan Dr., Carterville, IL, 62918
+ 
+system_health:
+
+# Example configuration.yaml entry
+- platform: reddit
+  username: !secret reddit_username
+  password: !secret reddit_password
+  client_id: !secret reddit_client_id
+  client_secret: !secret reddit_client_secret
+  subreddits:
+  
+googlehome:
+  devices:
+    - host: 192.168.86.50
+    
+recorder:
+  purge_keep_days: 5
+
+  
+  
+  

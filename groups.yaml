@@ -1,0 +1,111 @@
+castle_card:
+  name: Castle
+  view: yes
+  entities:
+   - group.kingdom_card
+   - group.lair_card
+   - group.lab_card
+   - media_player.castle
+   - switch.light_card
+
+kingdom_card:
+  name: Kingdom
+  view: yes
+  entities:
+    - light.1
+    - light.2
+    - light.3
+    - group.sensor_node_1_card
+    - media_player.homey
+    - media_player.ulty
+    - media_player.yamy
+    - media_player.yamy_main
+    - media_player.yamy_zone_2
+    - media_player.playstation_4
+    - camera.wyzey
+    - switch.light_3
+
+lair_card:
+  name: Lair
+  view: yes
+  entities:
+    - switch.strip_cord_2
+    - light.window
+    - group.sensor_node_3_card
+    - media_player.master_bedroom_speaker
+    - switch.strip_cord_4
+    - switch.light_1
+lab_card:
+  name: Lab
+  view: yes
+  entities:
+   - switch.strip_cord_1
+   - switch.strip_cord_3
+   - group.sensor_node_2_card
+   - media_player.study_speaker
+   - media_player.google_play_music
+   - group.printy_card
+
+kitchen_card:
+  name: Kitchen
+  view: yes
+  entities:
+   - light.lifey
+
+device_tracker_card:
+  name: Device Tracker
+  view: yes
+  entities:
+
+sensor_node_1_card:
+  name: Sensor Node 1
+  entities:
+   - sensor.sn1_temperature
+   - sensor.sn1_humidity
+   - sensor.sn1_ldr
+   - sensor.sn1_pir
+   - light.sn1_led
+
+sensor_node_2_card:
+  name: Sensor Node 2
+  entities:
+   - sensor.sn2_temperature
+   - sensor.sn2_humidity
+   - sensor.sn2_ldr
+   - sensor.sn2_pir
+   - light.sn2_led
+
+sensor_node_3_card:
+  name: Sensor Node 3
+  entities:
+   - sensor.sn3_temperature
+   - sensor.sn3_humidity
+   - sensor.sn3_ldr
+   - sensor.sn3_pir
+   - light.sn3_led
+
+printy_card:
+  name: Printy
+  view: no
+  entities:
+   - binary_sensor.printy_printing
+   - binary_sensor.printy_printing_error
+   - sensor.printy_actual_tool0_temp
+   - sensor.printy_actual_bed_temp
+   - sensor.printy_current_state
+   - sensor.printy_job_percentage
+   - sensor.printy_target_tool0_temp
+   - sensor.printy_target_bed_temp
+   - sensor.printy_time_elapsed
+   - sensor.printy_time_remaining
+   - camera.octoprint
+
+switch.light_card:
+  name: Switch.lights
+  view: no
+  entities:
+    - switch.light_1
+    - switch.light_2
+    - switch.light_3
+    - switch.light_4
+    - switch.light_5
