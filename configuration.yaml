@@ -165,8 +165,8 @@ hdmi_cec:
 notify:
   - platform: html5
     name: NOTIFIER_NAME
-    vapid_pub_key: BCtoINOYSDe7AunralSFhZ07CNXiGsnCJwyjM3evxZxOKYK_aR3mmLsWn16LGB9Kb8k4dvrzRvSyp1Jaxzz9Nbw
-    vapid_prv_key: 2YLFI_lpjmCedTOC5jWHo2wObyIpdbASB-uiLm-KNxM
+    vapid_pub_key: !secret notify_pub_key
+    vapid_prv_key: !secret notify_prv_key
     vapid_email: rms355@gmail.com
     
 #  - platform: html5
