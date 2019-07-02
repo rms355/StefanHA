@@ -1,0 +1,6 @@
+platform: generic
+stream_source: rtsp://192.168.86.241/live
+username: !secret wyze_username
+password: !secret wyze_password
+still_image_url: https://stefanha.duckdns.org/api/hassio_ingress/47z7qQPL0lfgeA7FUMRhUxv7vCpv6c5SO5up9L7hqCo/picture/1/current/
+name: Wyzey

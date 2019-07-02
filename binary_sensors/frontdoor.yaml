@@ -1,0 +1,8 @@
+platform: mqtt
+state_topic: "tele/RF_Bridge/RESULT"
+name: 'Front door'
+value_template: '{{value_json.RfReceived.Data}}'
+payload_on: '5B15EE'
+payload_off: '5B15E7'
+device_class: door
+qos: 1

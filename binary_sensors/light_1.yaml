@@ -1,0 +1,8 @@
+platform: mqtt
+state_topic: "tele/RF_Bridge/RESULT"
+name: 'Light 1'
+value_template: '{{value_json.RfReceived.Data}}'
+payload_on: '8CE00C'
+payload_off: '8CE004'
+device_class: light
+qos: 1

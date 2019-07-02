@@ -1,0 +1,8 @@
+platform: mqtt
+state_topic: "tele/RF_Bridge/RESULT"
+name: 'Back Door'
+value_template: '{{value_json.RfReceived.Data}}'
+payload_on: 'EF8BA9'
+payload_off: 'EF8BA9off'
+device_class: door
+qos: 1
