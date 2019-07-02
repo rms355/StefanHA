@@ -1,0 +1,9 @@
+platform: mqtt
+name: "Light 5"
+command_topic: cmnd/RF_Bridge/rfcode
+availability_topic: "tele/RF_Bridge/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"
+payload_on: "#8CE00B"
+payload_off: "#8CE003"
+optimistic: true

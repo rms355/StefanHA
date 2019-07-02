@@ -1,0 +1,4 @@
+platform: waze_travel_time
+origin: 1200 Stefan Dr. Carterville, IL. 62918
+destination: 903 Castlehill, FL. 32162
+region: 'US'
